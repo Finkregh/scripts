@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
+  <head profile="http://gmpg.org/xfn/11">
+    <title>css/html-test</title>
+    <link rel="stylesheet" href="./screen.css" type="text/css" media="screen" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <!--  <style type="text/css" media="screen">
+    </style> -->
+  </head>
+  <body>
+    <h1>Downloadformular - Datenüberprüfung</h1>
+    <p>Fields marked <strong title="Required" class="required">*</strong> are required for submission</p>
+    <form action="whatever.php">
+      <fieldset>
+        <legend id="personal">Personal Details</legend>
+    
+        <label for="titlereq">Title <strong title="Required" class="required">*</strong></label> :
+          <select id="titlereq" name="titlereq">
+            <option value="mr">Mr.</option>
+            <option value="mrs">Mrs.</option>
+          </select>
+    
+        <label for="firstnamereq">First Name <strong title="Required" class="required">*</strong></label> :
+          <input type="text" id="firstnamereq" name="firstnamereq" value="" />
+    
+        <label for="lastnamereq">Last Name <strong title="Required" class="required">*</strong></label> :
+          <input type="text" id="lastnamereq" name="lastnamereq" value="" />
+    
+        <label for="emailreq">E-Mail-Address <strong title="Required" class="required">*</strong></label> :
+          <input type="text" id="emailreq" name="emailreq" value="" />
+      </fieldset>
+  
+  
+      <fieldset>
+        <legend id="company">Company Details</legend>
+        
+        <label for="compnamereq">Company Name <strong title="Required" class="required">*</strong></label> :
+          <input type="text" id="compnamereq" name="compnamereq" value="" />
+    
+        <label for="comptelreq">Phone Number <strong title="Required" class="required">*</strong></label> :
+          <input type="text" id="comptelreq" name="comptelreq" value="" />
+    
+        <label for="compfaxreq">FAX Number</label> :
+          <input type="text" id="compfaxreq" name="compfaxreq" value="" />
+          
+        <label for="compwebadd">Website</label> :
+          <input type="text" id="compwebadd" name="compwebadd" value="" />
+        
+          <fieldset>
+            <legend id="compaddr">Company Address</legend>
+            <label for="compstreetreq">Street, Street Number <strong title="Required" class="required">*</strong></label> :
+              <input type="text" id="compstreetreq" name="compstreetreq" value="" />
+            <label for="compzipreq">Zipcode <strong title="Required" class="required">*</strong></label> :
+              <input type="text" id="compzipreq" name="compzipreq" value="" />
+            <label for="compcityreq">City <strong title="Required" class="required">*</strong></label> :
+              <input type="text" id="compcityreq" name="compcityreq" value="" />
+            <label for="compcountryreq">Country <strong title="Required" class="required">*</strong></label> :
+              <input type="text" id="compcountryreq" name="compcountryreq" value="" />         
+          </fieldset>
+        
+        <label for="compposi">Position in the Company</label> :
+          <input type="text" id="compposi" name="compposi" value="" />
+      </fieldset>
+    </form>
+  </body>
+</html>

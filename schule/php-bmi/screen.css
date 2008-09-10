@@ -1,0 +1,114 @@
+@CHARSET "UTF-8";
+
+/* * {font-family:Verdana,Geneva,Arial,sans-serif;} */
+
+input {display: block; margin-left: 2em;}
+input:focus {border: 1px solid red;}
+
+input.radio  {margin-right:1em}
+input.radio:focus {border:2px solid red}
+
+select {display: block}
+
+strong.required {color: red; cursor:help}
+
+legend {
+  font-weight : bold;
+  color : #333;
+  margin : 0;
+  padding: 0.5em;
+  }
+
+legend#personal {
+  padding-left: 2em !important;
+  background-position:left;
+  background-image:url(images/head-32.png);
+  background-repeat:no-repeat;
+  }
+
+legend#company {
+  padding-left: 2em !important;
+  background-position:left;
+  background-image:url(images/home-32.png);
+  background-repeat:no-repeat;
+  }
+
+legend#compaddr {
+  padding-left: 2em !important;
+  background-position:left;
+  background-image:url(images/letter-1-32.png);
+  background-repeat:no-repeat;
+
+  }
+
+
+
+
+
+
+/* * {
+  margin: 0;
+  padding: 0;
+}*/
+
+form {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  min-width: 560px;
+  max-width: 620px;
+  width: 590px;
+  }
+
+form fieldset {
+  clear: both;
+  font-size: 100%;
+  border-color: #000000;
+  border-width: 1px 0 0 1px;
+  border-style: solid none none solid;
+  padding: 10px;
+  margin: 0 0 0 0;
+  background-color: 222;
+  }
+
+form fieldset fieldset {
+  clear: both;
+  font-size: 100%;
+  border-color: #000000;
+  border-width: 1px 0 0 1px;
+  border-style: solid none none solid;
+  padding: 20px;
+  margin: 0 0 0 0;
+  background-color: 333;
+  }
+
+form fieldset legend {
+  font-size: 150%;
+  font-weight: normal;
+  color: #000000;
+  margin: 0 10em 0 0;
+  padding: 0 5px;
+  }
+
+form fieldset fieldset legend {
+  font-size: 125%;
+  }
+
+label {
+  font-size: 100%;
+  }
+
+input, select, textarea {
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 100%;
+  color: #000000;
+  border: 1px black solid;
+  }
+
+textarea {
+  overflow: auto;
+  }
+
+form fieldset legend {
+  line-height: 150%;
+}
