@@ -32,7 +32,7 @@ echo '
 $groesse = (int) $_POST["groesse"];
 $gewicht = (int) $_POST["gewicht"];
 
-if (isset($_POST["groesse"]) && isset($_POST["gewicht"]) && $groesse < 300 && $gewicht < 450) 
+if (!isset($_POST["groesse"]) && !isset($_POST["gewicht"]) && $groesse < 300 && $gewicht < 450) 
 {
         $bmi = $gewicht / (($groesse/100) * ($groesse/100));
 
@@ -54,11 +54,11 @@ if (isset($_POST["groesse"]) && isset($_POST["gewicht"]) && $groesse < 300 && $g
         }
         else if ($bmi > 30 && $bmi < 40)
         {
-			echo '                <li>Kategorie: <strong>starkes Übergewicht</strong></li>';
+			echo '                <li>Kategorie: <strong>starkes &Uuml;bergewicht</strong></li>';
         }
         else
         {
-			echo '                <li>Kategorie: <strong>extremes Übergewicht</strong></li>';
+			echo '                <li>Kategorie: <strong>extremes &Uuml;bergewicht</strong></li>';
         }
         echo '</ul></p>';
 }

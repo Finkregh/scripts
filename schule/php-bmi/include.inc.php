@@ -13,9 +13,10 @@ echo '<?xml version="1.0"?>
 	<head profile="http://gmpg.org/xfn/11">
 		<title>Aufgaben ...</title>
 		<!-- <link rel="stylesheet" href="./style/style.css" type="text/css" media="screen" />
-		<link rel="shortcut icon" href="favicon.ico" />
+		<link rel="shortcut icon" href="favicon.ico" /> -->
 		<style type="text/css" media="screen">
-		</style> -->
+				strong.required {color: red; cursor:help}
+		</style>
 	</head>
 	<body>
 			';
