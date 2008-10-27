@@ -13,7 +13,7 @@ include ('include.inc.php');
 
 /*
 * 
-* Aufgabe sechs
+* Aufgabe sieben
 * 
 */ 
 htmlheader();
@@ -23,9 +23,11 @@ function form() {
 					<form action="' . $_SERVER[PHP_SELF] . '" method="post">
                         <p>K&ouml;rpergr&ouml;&szlig;e <strong title="Required" class="required">*</strong>: <input type="text" name="groesse" value="'; if (isset($_POST["groesse"])) {echo $_POST["groesse"];} echo '" />cm<br />
 						<p><input type="submit"/></p>
-					</form>
-                	<p>Felder, die markiert <strong title="Required" class="required">*</strong> sind, m&uuml;ssen ausgef&uuml;llt werden!</p>
-	';
+					</form>';
+    if (!isset($_POST["groesse"]) || $_POST["groesse"] == '')
+    {
+    	echo '					<p>Felder, die markiert <strong title="Required" class="required">*</strong> sind, m&uuml;ssen ausgef&uuml;llt werden!</p>';
+    }
 }
 
 if (!isset($_POST["groesse"]) && !isset($_POST["gewicht_typ"]))
@@ -48,7 +50,7 @@ else
     	for ($counter=40; $counter<=90; $counter=$counter+10)
     	{
 			$bmi = round($counter / (($groesse / 100)* ($groesse / 100)), 1);
-			echo '					<li>bei einem Gewicht von: ' . $counter . ' kg w&uuml;rde der BMI: ' . $bmi . ' betragen</li>';
+			echo '					<li>bei einem Gewicht von: <em>' . $counter . 'kg</em> w&uuml;rde der BMI: <em>' . $bmi . '</em> betragen</li>';
 		}
 		echo '				</ol>';		
 	}

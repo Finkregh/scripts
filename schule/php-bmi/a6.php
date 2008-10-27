@@ -28,9 +28,11 @@ function form() {
                         <li><input type="radio" name="gewicht_typ" value="3" /> &Uuml;bergewicht</li>
                         <li><input type="radio" name="gewicht_typ" value="4" /> starkes &Uuml;bergewicht</li>
                         <li><input type="radio" name="gewicht_typ" value="5" /> extremes &Uuml;bergewicht</li></ul>
-                        <p><input type="submit"/></p></form>
-                <p>Felder, die markiert <strong title="Required" class="required">*</strong> sind, m&uuml;ssen ausgef&uuml;llt werden!</p>
-	';
+                        <p><input type="submit"/></p></form>';
+    if (!isset($_POST["groesse"]) || $_POST["groesse"] == '') 
+    {
+    	echo '					<p>Felder, die markiert <strong title="Required" class="required">*</strong> sind, m&uuml;ssen ausgef&uuml;llt werden!</p>';
+    }
 }
 
 if (!isset($_POST["groesse"]) && !isset($_POST["gewicht_typ"]))
