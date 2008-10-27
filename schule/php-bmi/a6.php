@@ -4,7 +4,7 @@
  * by win-user: lorenzen_fi07b
  * 
  * TODO
- * cleanup
+ * whitespacing in html-output
  * 
  */
  
