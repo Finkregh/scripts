@@ -64,7 +64,6 @@ if (!isset($_POST["groesse"]) && !isset($_POST["gewicht"]) && $groesse < 300 && 
 }
 else
 {
-        //echo $_POST["groesse"];
         exit ("                <p><strong>Bitte die K&ouml;rpergr&ouml;&szlig;e und das Gewicht sinvoll angeben!</strong></p>");
 }
 

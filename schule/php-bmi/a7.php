@@ -59,7 +59,6 @@ else
 	}
 	else
 	{
-	        //echo $_POST["groesse"];
 	        exit ("                <p><strong>Bitte die K&ouml;rpergr&ouml;&szlig;e sinvoll angeben!</strong></p>");
 	}
 	
