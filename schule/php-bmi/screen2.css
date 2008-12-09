@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+
+* {font-family:Verdana,Geneva,Arial,sans-serif;}
+strong.required {color: red; cursor:help}
+input:focus {border: 1px solid red;}
+strong.required {color: red; cursor:help}
+input, select, textarea {border: 1px black solid;}

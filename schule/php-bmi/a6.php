@@ -19,19 +19,19 @@ include ('include.inc.php');
 htmlheader();
 
 function form() {
-	echo '                <h1>Aufgabe 6</h1>
-                        <form action="' . $_SERVER[PHP_SELF] . '" method="post">
-                        <p>K&ouml;rpergr&ouml;&szlig;e <strong title="Required" class="required">*</strong>: <input type="text" name="groesse" value="'; if (isset($_POST["groesse"])) {echo $_POST["groesse"];} echo '" />cm<br />
-                        Kategorie <strong title="Required" class="required">*</strong>:</p>
-                        <ul style="list-style-type:none"><li><input type="radio" checked="checked" name="gewicht_typ" value="1" /> Untergewicht</li>
-                        <li><input type="radio" name="gewicht_typ" value="2" /> Normalgewicht</li>
-                        <li><input type="radio" name="gewicht_typ" value="3" /> &Uuml;bergewicht</li>
-                        <li><input type="radio" name="gewicht_typ" value="4" /> starkes &Uuml;bergewicht</li>
-                        <li><input type="radio" name="gewicht_typ" value="5" /> extremes &Uuml;bergewicht</li></ul>
-                        <p><input type="submit"/></p></form>';
+	echo '<h1>Aufgabe 6</h1>
+			<form action="' . $_SERVER[PHP_SELF] . '" method="post">
+			<p>K&ouml;rpergr&ouml;&szlig;e <strong title="Required" class="required">*</strong>: <input type="text" name="groesse" value="'; if (isset($_POST["groesse"])) {echo $_POST["groesse"];} echo '" />cm<br />
+			Kategorie <strong title="Required" class="required">*</strong>:</p>
+			<ul style="list-style-type:none"><li><input type="radio" checked="checked" name="gewicht_typ" value="1" /> Untergewicht</li>
+			<li><input type="radio" name="gewicht_typ" value="2" /> Normalgewicht</li>
+			<li><input type="radio" name="gewicht_typ" value="3" /> &Uuml;bergewicht</li>
+			<li><input type="radio" name="gewicht_typ" value="4" /> starkes &Uuml;bergewicht</li>
+			<li><input type="radio" name="gewicht_typ" value="5" /> extremes &Uuml;bergewicht</li></ul>
+			<p><input type="submit"/></p></form>';
     if (!isset($_POST["groesse"]) || $_POST["groesse"] == '') 
     {
-    	echo '					<p>Felder, die markiert <strong title="Required" class="required">*</strong> sind, m&uuml;ssen ausgef&uuml;llt werden!</p>';
+    	echo '<p>Felder, die markiert <strong title="Required" class="required">*</strong> sind, m&uuml;ssen ausgef&uuml;llt werden!</p>';
     }
 }
 
@@ -39,7 +39,7 @@ if (!isset($_POST["groesse"]) && !isset($_POST["gewicht_typ"]))
 {
 	form();
 	htmlfooter();
-	exit;
+	exit();
 }
 else
 {
@@ -91,7 +91,7 @@ else
 	}
 	else
 	{
-	        exit ("                <p><strong>Bitte die K&ouml;rpergr&ouml;&szlig;e sinvoll angeben!</strong></p>");
+	        exit ("<p><strong>Bitte die K&ouml;rpergr&ouml;&szlig;e sinvoll angeben!</strong></p>");
 	}
 	
 	htmlfooter();

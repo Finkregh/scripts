@@ -12,11 +12,7 @@ echo '<?xml version="1.0"?>
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 	<head profile="http://gmpg.org/xfn/11">
 		<title>Aufgaben ...</title>
-		<!-- <link rel="stylesheet" href="./style/style.css" type="text/css" media="screen" />
-		<link rel="shortcut icon" href="favicon.ico" /> -->
-		<style type="text/css" media="screen">
-				strong.required {color: red; cursor:help}
-		</style>
+		<link rel="stylesheet" href="screen2.css" type="text/css" media="screen" />
 	</head>
 	<body>
 			';
