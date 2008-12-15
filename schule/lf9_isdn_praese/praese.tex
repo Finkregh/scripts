@@ -192,22 +192,22 @@ ISDN-Anschlüsse:
 \end{small}
 \end{frame}
 
-\subsection{Kosten von ISDN- und Analog-Anschluss}
-\begin{frame}
-	\begin{figure}[htb]
-		\centering
-		\begin{tikzpicture}
-			\begin{axis}[
-				xlabel=Zeit (s),
-				ylabel=Kraft (N),
-				width=7cm,
-				height=3cm]
-			\addplot[smooth,color=blue] 
-				table[x=time,y=datadownsampled] {demo.table};
-			\end{axis}
-		\end{tikzpicture}
-	\end{figure}
-\end{frame}
+%\subsection{Kosten von ISDN- und Analog-Anschluss}
+%\begin{frame}
+%	\begin{figure}[htb]
+%		\centering
+%		\begin{tikzpicture}
+%			\begin{axis}[
+%				xlabel=Zeit (s),
+%				ylabel=Kraft (N),
+%				width=7cm,
+%				height=3cm]
+%			\addplot[smooth,color=blue] 
+%				table[x=time,y=datadownsampled] {demo.table};
+%			\end{axis}
+%		\end{tikzpicture}
+%	\end{figure}
+%\end{frame}
 
 \subsection{Merkmale einer ISDN-TK-Anlage}
 \begin{frame}
@@ -267,12 +267,9 @@ ISDN-Anschlüsse:
 \end{frame}
 
 
-\subsection{Vergleich der Transferdauer bei ADSL und SDSL}
-\begin{frame}
-	\begin{itemize}
-      \item 
-    \end{itemize}
-\end{frame}
+%\subsection{Vergleich der Transferdauer bei ADSL und SDSL}
+%\begin{frame}
+%\end{frame}
 
 \subsection{Kosten eines DSL-Anschlusses}
 
@@ -296,18 +293,119 @@ ISDN-Anschlüsse:
 
 
 \section{Allgemein}
-\subsection{Downloadtransferdauer von Analog, ISDN und ADSL}
+\subsection{Transferdauer}
+
 \begin{frame}
-	\begin{itemize}
-      \item 
-    \end{itemize}
+\frameheading{Transferdauer - Analog, ISDN, ISDN*2, ADSL}
+\begin{footnotesize}
+\begin{figure}
+\begin{tikzpicture}
+    \begin{axis}[
+        xbar,
+        xlabel=Dauer in Sekunden (10 Mb),
+        width=3.5inch,
+        height=2inch,
+        ytick={1,...,4},
+        yticklabels={%
+            56 Kbps,
+            64 Kbps,
+            128 Kbps,
+            8 Mbps},
+        xmin=0,
+        xmax=1600
+    ]
+    \addplot[draw=darkblue,fill=blue!50!white,semithick] coordinates {
+        (1428,    1) 
+        (1250,    2)
+        (625,   3)
+        (9,    4)
+    };
+    \end{axis}
+\end{tikzpicture}
+\end{figure}
+%\end{columns}
+\end{footnotesize}
+\end{frame}
+
+%\begin{small}
+%\begin{columns}[c]
+%\column{1.8in}
+\begin{frame}
+\frameheading{Transferdauer - ADSL \& SDSL}
+\begin{footnotesize}
+\begin{figure}
+	\begin{tikzpicture}
+	    \begin{axis}[
+	        xbar,
+	        xlabel=Dauer in Sekunden (10 Mb),
+	        width=3.5inch,
+	        height=2inch,
+	        ytick={1,...,4},
+	        yticklabels={%
+	            Download ADSL,
+	            Download SDSL,
+	            Upload ADSL,
+	            Upload SDSL},
+	        xmin=0,
+	        xmax=80
+	    ]
+	    \addplot[draw=darkblue,fill=blue!50!white,semithick] coordinates {
+	        (9,    1) 
+	        (9,    2)
+	        (78,   3)
+	        (9,    4)
+	    };
+	    \end{axis}
+	\end{tikzpicture}
+\end{figure}
+%\end{columns}
+\end{footnotesize}
 \end{frame}
 
 \subsection{Kostenvergleich}
 \begin{frame}
-	\begin{itemize}
-      \item 
-    \end{itemize}
+\frameheading{Tarifvarianten bei 1,5 Std Nutzung}
+\begin{footnotesize}
+\begin{figure}
+	\begin{tikzpicture}
+	    \begin{axis}[
+	        xbar,
+	        xlabel=Kosten in \euro,
+	        width=3.3inch,
+	        height=2.7inch,
+	        ytick={1,...,10},
+	        yticklabels={%
+	            Analog by Call,
+	            ISDN by Call,
+	            ISDN Flat,
+	            DSL 8000 analog by Call,
+	            DSL 8000 analog (200 Mb),
+	            DSL 8000 analog flat,
+	            DSL 8000 ISDN by Call,
+	            DSL 8000 ISDN (200 Mb),
+	            DSL 8000 ISDN flat,
+	            DSL 8000 Solo (VoIP)
+	            },
+	        xmin=0,
+	        xmax=45
+	    ]
+	    \addplot[draw=darkblue,fill=blue!50!white,semithick] coordinates {
+	        (18,    1) 
+	        (19,    2)
+	        (37,    3)
+	        (30,    4)
+	        (37,	5)
+	        (35,	6)
+	        (36,	7)
+	        (43,	8)
+	        (40,	9)
+	        (27,	10)	
+	    };
+	    \end{axis}
+	\end{tikzpicture}
+\end{figure}
+%\end{columns}
+\end{footnotesize}
 \end{frame}
 
 \section[]{}
