@@ -1,0 +1,803 @@
+\documentclass[
+    %headtopline,    % <== Trennlinie Kopfzeile oben
+    headsepline,     % <== Trennlinie Kopfzeile unten
+    %footsepline,    % <== Trennlinie Fußzeile oben
+    onecolumn,       % <== einspaltiges Layout
+    %twocolumn,
+    titlepage,
+    %fleqn,          % <== Formeln Linksbündig setzen
+    pdftex,
+    a4paper,
+    oneside,         % <== Layout einseitiges Dokument
+    %%titlepage,     % <== unterstützt von KOMA-Script???
+    12pt
+]{scrartcl}
+\usepackage[
+    automark         % <== automatische Kolumnentitel
+]{scrpage2}
+\usepackage[german, ngerman]{babel}
+\usepackage[latin1]{inputenc}
+% Das Paket cm-super muss instaliert werden, damit die
+% Schrift richtig dargestellt wird!
+\usepackage[T1]{fontenc}
+%\usepackage{listings}
+\usepackage{eurosym}
+% Euro-Zeichen
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{every axis plot/.append style={very thick}}
+% Balkengrafiken
+
+\usepackage[pdftex]{graphicx}
+\usepackage[pdftex, colorlinks, linkcolor=black, urlcolor=black,pdfborderstyle={/S/U/W0}]{hyperref}
+\usepackage[pdftex]{color}
+\usepackage[pdftex]{colortbl}
+%\usepackage{blindtext}
+\usepackage{textcomp}
+\usepackage{upgreek}
+% Schaltet serifenlose Schrift im gesamten Dokument ein:
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{helvet}
+
+% ******************************************************************************
+\begin{document}
+\subject{Projektarbeit}
+\title{Öffentliche Netze und Dienste}
+\subtitle{Kundenauftrag Internetanbindung}
+\author{Petra Fronius \and Conrad Kostecki \and Oluf Lorenzen \and Christoph
+Ringe \and Martin Wilke}
+\publishers{MMBBS Hannover}
+%\thanks{Fußnote}
+\maketitle[0]
+
+% Seitenstil:
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\clearscrheadings
+\clearscrplain
+\ohead[]{\pagemark} \chead[]{} \ihead[]{\headmark}
+\ofoot[]{\begin{picture}(0,0)
+    %\put(-450,700){\includegraphics[scale=0.4]{images/logommbbs.png}}
+    %\put(-50,700){\includegraphics[scale=0.4]{images/logommbbs.png}}
+    \put(-450,700){\includegraphics[scale=0.5]{images/logommbbs.png}}
+\end{picture}} \cfoot[]{} \ifoot[]{}
+
+% Farbdefinitionen:
+\definecolor{cenitcolor}{rgb}{0,0.6,0.6}
+\definecolor{cenitcolorLight}{rgb}{0.85,1,1}
+\definecolor{DGreen}{rgb}{0,0.6,0.0}
+\definecolor{Gray}{gray}{0.85}
+
+% Tabelleneinstellungen:
+\setlength\arrayrulewidth{1.3pt}    % <== Linienstärke in Tabellen
+
+% Inhaltsverzeichnis:
+\tableofcontents
+\cleardoublepage
+
+%% Tabellenverzeichnis:
+\listoftables
+\cleardoublepage
+
+%% Abbildungsverzeichnis:
+\listoffigures
+\cleardoublepage
+
+%% Listingverzeichnis:
+%\lstlistoflistings
+%\cleardoublepage
+
+%\onecolumn
+
+\section[Handlungsschritt 1]{Handlungsschritt 1\footnote{Autor: Petra Fronius}}
+\subsection{ISDN}
+\subsubsection{Definition und Merkmale}
+ISDN steht für ``Integrated Services Digital Network'' und ist ein internationaler
+Standard für ein digitales Telekommunikationsnetzwerk. In diesem Netz sind
+verschiedene Dienste, wie Telefax, Telefonie und Datenübertragung integriert,
+wofür früher jeweils ein eigenes Netz notwendig war.\\
+Bei einem ISDN-Basisanschluss stehen zwei voneinander unabhängige Kanäle zur
+Verfügung, die für Telefongespräche, Fax und/oder Datenübertragung genutzt
+werden können.\\
+Mit ISDN sind zwei Anschlussvarianten möglich, zum einen der schon erwähnte
+Basisanschluss und zum anderen der Anlagenanschluss.\\
+Der Basisanschluss wird größtenteils von Privatkunden oder kleineren Betrieben
+genutzt. Er stellt zwei Nutzkanäle (B-Kanäle) mit je 64 kbit/s
+Datenübertragungsrate und einen Steuerkanal (D-Kanal)  für die Übertragung von
+Steuerinformationen mit 16 kbit/s bereit.\\
+Der Anlagenanschluss dient zum Anschluss einer Telefonanlage, wobei hier die
+Anzahl der nutzbaren Nummern und Telefone nicht begrenzt ist, es wird nur eine
+Grundrufnummer mit einer Anzahl von Ziffernstellen für Durchwahlen
+bereitgestellt.\\
+Eine besondere Form des Anlagenanschlusses ist der Primärmultiplexanschluss,
+welcher 30 B-Kanäle mit je 64 kbit/s, einen D-Kanal mit 64 kbit/s und einen
+weiteren Kanal für Wartung und Synchronisation mit weiteren 64 kbit/s zur
+Verfügung stellt.\\
+Diese Form des Anschlusses würde sich empfehlen, wenn der
+Kunde expandieren und 30 Sprachkanäle zeitgleich nutzen möchte.
+\subsubsection{Vergleich von ISDN- und Analog-Anschlüssen}
+Der Hauptunterschied zwischen ISDN- und Analog-Anschluss besteht in der
+digitalen Übertragung bis zum Endgerät. Während beim analogen Anschluss nur ein Kanal
+und eine Rufnummer zur Verfügung stehen, wodurch nur ein Gespräch gleichzeitig
+geführt werden kann, stehen beim ISDN-Anschluss zwei Kanäle mit bis zu 10
+Rufnummern, die gleichzeitig genutzt werden können, zur Verfügung.\\
+Ein weiterer Unterschied ist die verlustfreie Signalübertragung bei ISDN mit
+einer Datenübertragungsrate von bis zu 128 kbit/s bei Doppelkanalbenutzung
+gegenüber nur 56 kbit/s Datenübertragungsrate bei analogem Anschluss mit nicht
+verlustfreier Signalübertragung, da hier nur eine Signalverstärkung statt
+einer Signalregenerierung stattfindet.\\
+Zur Veranschaulichung des Unterschieds bei der Downloadtransferdauer zwischen
+ISDN- und Analog-Anschluss wird eine 10 MB große Datei herangezogen.\\
+So benötigt man mit ISDN ca. 21 Minuten um diese Datei bei einer
+Geschwindigkeit von 8 kB/s herunter zu laden, während man mit einem analogen
+Anschluss bei einer Geschwindigkeit von 7 kB/s ca. 24 Minuten benötigt.
+\subsubsection{Kosten von ISDN- und Analog-Anschluss}
+Das Entgelt für einen ISDN-Anschluss liegt momentan bei 17,90
+\texteuro/Monat\footnote{\label{foot:Preise}Die Preisangabe ist der
+Internetseite der \href{http://www.htp.net/}{htp GmbH} entnommen} und für
+einen Analog-Anschluss bei 17,00
+\texteuro/Monat\textsuperscript{\ref{foot:Preise}}.\\ Es fallen noch zusätzliche
+Verbindungsentgelte bzw. Grundentgelte für Flatrate an, je nachdem für was sich der Kunde entscheidet.
+\subsubsection{Merkmale einer ISDN-TK-Anlage}
+Bei einer TK-Anlage handelt es sich um eine Punkt-zu-Mehrpunkt-Verbindung. Sie
+dient zur Verbindung mehrerer Endgeräte untereinander und mit dem öffentlichen
+Telefonnetz.\\
+Ein Leistungsmerkmal einer ISDN-TK-Anlage ist, dass es nur eine Rufnummer mit
+einer beliebigen Anzahl von Ziffernstellen für Durchwahlen gibt, was unter
+anderem Rufumleitung, Weiterverbinden von Telefongesprächen, zentrales
+internes Telefonbuch und Gebührenerfassung ermöglicht.\\
+Die Vorteile einer solchen Anlage liegen in den kostenlosen internen Gesprächen
+zwischen den einzelnen angeschlossenen Endgeräten, sowie die Kosteneinsparung
+beim Anschluss, da nicht jedes Endgerät einen Teilnehmeranschluss benötigt und
+der Möglichkeit von Konferenzschaltungen.\\
+Das Grundentgelt für einen ISDN-Anlagenanschluss beläuft sich momentan auf
+17,90 \texteuro/Monat\textsuperscript{\ref{foot:Preise}}.
+\subsection{DSL}
+\subsubsection{Definition und Merkmale}
+DSL steht für ``Digital Subsrciber Line'' und bezeichnet einen
+Übertragungsstandard, mit dem Daten mit hohen Übertragungsraten von bis zu 210
+MBit/s über einfache Kupferleitungen gesendet und empfangen werden können.
+Hierbei wird ein Frequenzband genutzt, welches oberhalb des für analoge
+Telefonie genutzten Frequenzbandes liegt, so dass gleichzeitiges Telefonieren
+und Nutzen des Internets möglich ist.\\
+Ein DSL-Anschluss kann in Verbindung mit einem analogen Telefon- oder einem
+ISDN-Anschluss genutzt werden. Es besteht aber auch die Möglichkeit einen
+DSL-Anschluss ohne diese Beiden zu nutzen, indem Telefongespräche über IP
+(VoIP) geführt werden.
+\subsubsection{ADSL}
+ADSL steht für ``Asymmetric Digital Subscriber Line'' und ist zurzeit das am
+häufigsten verwendete Übertragungsverfahren im Privatkundenbereich. Hierbei
+handelt es sich, wie der Name schon sagt, um einen asynchronen DSL-Anschluss,
+d.h. Downstream (Empfangsrate) und Upstream (Senderate) werden ungleich
+aufgeteilt, wobei der Downstream höher als der Upstream ist.\\
+Für die störungsfreie, gleichzeitige Nutzung der Telefonleitung werden sowohl
+beim Hauptverteiler als auch beim Teilnehmer Frequenzweichen (Splitter)
+eingesetzt, welche die Frequenzbereiche auftrennen.\\
+In Deutschland sind bei ADSL über ISDN maximale Datenraten von bis zu 10 MBit/s
+in Empfangs- und bis zu 1 MBit/s in Senderichtung möglich, über einen analogen
+Anschluss sind Datenraten von bis zu 8 MBit/s in Empfangsrichtung möglich.
+\subsubsection{SDSL}
+SDSL steht für "`Symmetric Digital Subscriber Line"'. Hierbei handelt es sich, wie
+der Name schon sagt, um einen synchronen DSL-Anschluss, wobei Down- und
+Upstream gleich groß sind.\\
+SDSL wird hauptsächlich für Datenverbindungen von Geschäftskunden verwendet,
+aber auch für die Anbindung von Netzkomponenten der Netzbetreiber.\\
+SDSL unterstützt nicht die Splitter-Technologie, die ADSL nutzt. Bei SDSL wird
+der gesamte Frequenzbereich, auch die von der Telefonie (bei ADSL) genutzten
+unteren Frequenzen.\\
+Dadurch kann auf derselben Doppelader kein herkömmlicher Telefondienst
+übertragen werden, weswegen man SDSL auch als Datenanschluss bezeichnet.\\
+Die maximale Datenrate beträgt 8 MBit/s sowohl für Downstream als auch
+Upstream.
+\subsubsection{Vergleich der Transferdauer bei ADSL und SDSL}
+Wie man gut in \hyperref[fig:transferdauer]{Abbildung \ref*{fig:transferdauer}}
+sehen kann ist die Gesamttransferdauer bei SDSL wesentlich niedriger, da bei
+ADSL die Uploadzeit auf Grund des Upstreams von nur 1~MBit/s um ein
+vielfaches höher ist.
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=8cm]{images/Transferdauer.png}
+%    \caption{Transferdauer einer 10 MByte großen Datei}
+%    \label{fig:transferdauer}
+%\end{figure}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	    \begin{axis}[
+	        xbar,
+	        xlabel=Dauer in Sekunden (10 Mb),
+	        width=5.5inch,
+	        height=2inch,
+	        ytick={1,...,4},
+	        yticklabels={%
+	            Download ADSL,
+	            Download SDSL,
+	            Upload ADSL,
+	            Upload SDSL},
+	        xmin=0,
+	        xmax=80
+	    ]
+	    \addplot[draw=darkblue,fill=blue!50!white,semithick] coordinates {
+	        (9,    1) 
+	        (9,    2)
+	        (78,   3)
+	        (9,    4)
+	    };
+	    \end{axis}
+	\end{tikzpicture}
+    \caption{Transferdauer einer 10 MByte großen Datei}
+    \label{fig:transferdauer}
+\end{figure}
+\subsubsection{Kosten eines DSL-Anschlusses}
+Wählt man einen ISDN- oder Analoganschluss mit DSL so sind die Grundgebühren
+des DSL-Anschlusses schon in den Grundgebühren des jeweiligen
+Telefonanschlusses mit eingerechnet.\\
+Es fallen noch Gebühren für den jeweiligen DSL-Tarif an, je nachdem ob man
+einen Zeit- oder Volumentarif oder eine Flatrate nutzen möchte.\\
+Als Beispiel ziehen wir eine Tarifübersicht (\hyperref[tbl:MGhtpDSL]{Tabelle
+\ref*{tbl:MGhtpDSL}}) der "`htp GmbH"' heran, welche zwei verschiedene
+DSL-Tarifmodelle für ISDN- und Analoganschlüsse gestaffelt nach
+Geschwindigkeit und DSL-Tarif anbietet.\\ Bei einem reinen VoIP-DSL-Anschluss
+fallen die Kosten um einiges geringer aus
+(\hyperref[tbl:MGhtpDSLSolo]{Tabelle \ref*{tbl:MGhtpDSLSolo}}), da hier
+schon DSL- und die Sprach-Flatrate mit in den Grundpreis enthalten sind.
+\begin{table}[b]
+\centering
+\begin{tiny}
+\begin{tabular}{|p{2.25cm}|p{1.25cm}|p{1.25cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\rowcolor{white}
+DSL-Produkt &
+Downstream $\left[\frac{\mbox{KBit}}{\mbox{s}}\right]$ &
+Upstream $\left[\frac{\mbox{KBit}}{\mbox{s}}\right]$ &
+Monatliches Grundentgelt DSL-Anschluss [\texteuro] &
+htp DSL Volumen [\texteuro/Monat] (Preisobergrenze 10 \texteuro/Monat) &
+Alternativ zu htp DSL Volumen: Monatliches Grundentgelt htp DSL Flat [\texteuro]\\
+\hline
+\rowcolor{Gray}
+htp DSL 4000 Analog & 4.096 & 384 & 24,95 & 0,039 & 5\\
+\rowcolor{white}
+htp DSL 4000 ISDN & 4.096 & 384 & 29,95 & 0,039 & 5\\
+\rowcolor{Gray}
+htp DSL 8000 Analog & 8.192 & 640 & 29,95 & 0,039 & 5\\
+\rowcolor{white}
+htp DSL 8000 ISDN & 8.192 & 640 & 34,95 & 0,039 & 5\\
+\rowcolor{Gray}
+htp DSL 16000 Analog & 16.384 & 1.024 & 34,95 & 0,039 & 5\\
+\rowcolor{white}
+htp DSL 16000 ISDN & 16.384 & 1.024 & 39,95 & 0,039 & 5\\
+\hline
+\end{tabular}
+\end{tiny}
+\caption{Monatliche Grundentgelte htp DSL}
+\label{tbl:MGhtpDSL}
+\end{table}
+\begin{table}
+\centering
+\begin{tiny}
+\begin{tabular}{|p{2cm}|p{1.25cm}|p{1.25cm}|p{2.5cm}|p{5.5cm}|}
+\hline
+\rowcolor{white}
+DSL Solo-Produkt &
+Downstream $\left[\frac{\mbox{KBit}}{\mbox{s}}\right]$ &
+Upstream $\left[\frac{\mbox{KBit}}{\mbox{s}}\right]$ &
+Monatliches Grundentgelt DSL-Anschluss [\texteuro] &
+Inklusivleistungen\\
+\hline
+\rowcolor{Gray}
+htp DSL Solo 8000 & 8.192 & 640 & 29,95 & DSL-Flatrate, Sprach-Flatrate in das
+nationale Festnetz\\
+\rowcolor{white}
+htp DSL Solo 4000 & 4.096 & 512 & 29,95 & DSL-Flatrate, Sprach-Flatrate in das
+nationale Festnetz\\
+\rowcolor{Gray}
+htp DSL Solo 16000 & 16.384 & 1.024 & 39,95 & DSL-Flatrate, Sprach-Flatrate in
+das nationale Festnetz\\
+\hline
+\end{tabular}
+\end{tiny}
+\caption{Monatliche Grundentgelte htp DSL Solo}
+\label{tbl:MGhtpDSLSolo}
+\end{table}
+
+
+
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=15cm]{images/htpTarife.png}
+%    \caption{Monatliche Grundentgelte htp DSL}
+%    \label{fig:MGhtpDSL}
+%\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=15cm]{images/htpTarifeSolo.png}
+%    \caption{Monatliche Grundentgelte htp DSL Solo}
+%    \label{fig:MGhtpDSLSolo}
+%\end{figure}
+
+
+\subsection{Gegenüberstellung Analog, ISDN und ADSL}
+Wie aus \hyperref[fig:Downloadvergleich]{Abbildung
+\ref*{fig:Downloadvergleich}} und \hyperref[fig:Kostenvergleich]{Abbildung
+\ref*{fig:Kostenvergleich}} zu ersehen ist, kann durch einen ADSL-An- schluss
+die Downloadzeit einer 10 MByte großen Datei um das 64- oder 128-fache verkürzt
+werden im Vergleich zu einem ISDN-Anschluss bzw. kanalgebündeltem
+ISDN-Anschluss, und das bei nur unwesentlich höheren Kosten.\\
+Wenn man nun bedenkt, dass man wohl weit mehr als 1,5 Stunden pro Monat im
+Internet ist, so wird die Entscheidung wohl auf Grund des Geschwindigkeits-
+und Preisvorteils auf eine ADSL-Flatrate (sofern diese verfügbar ist) in
+Verbindung mit einem ISDN-Basisanschluss oder -Anlagenanschluss fallen (der
+Grundpreis unterscheidet sich hier momentan nicht).
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=8cm]{images/Downloadvergleich.png}
+%    \caption{Downloaddauer einer 10 MByte großen Datei}
+%    \label{fig:Downloadvergleich}
+%\end{figure}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	    \begin{axis}[
+	        xbar,
+	        xlabel=Dauer in Sekunden (10 Mb),
+	        width=5.5inch,
+	        height=2inch,
+	        ytick={1,...,4},
+	        yticklabels={%
+	            56 Kbps,
+	            64 Kbps,
+	            128 Kbps,
+	            8 Mbps},
+	        xmin=0,
+	        xmax=1600
+	    ]
+	    \addplot[draw=darkblue,fill=blue!50!white,semithick] coordinates {
+	        (1428,    1) 
+	        (1250,    2)
+	        (625,   3)
+	        (9,    4)
+	    };
+	    \end{axis}
+	\end{tikzpicture}
+    \caption{Downloaddauer einer 10 MByte großen Datei}
+    \label{fig:Downloadvergleich}
+\end{figure}
+%\begin{figure}
+%    \centering
+%    \includegraphics[width=8cm]{images/Kostenvergleich.png}
+%    \caption{Kosten bei 1,5 h Internetnutzung}
+%    \label{fig:Kostenvergleich}
+%\end{figure}
+\begin{figure}
+	\centering
+	\begin{tikzpicture}
+	    \begin{axis}[
+	        xbar,
+	        xlabel=Kosten in \euro ,
+	        width=4inch,
+	        height=4inch,
+	        ytick={1,...,10},
+	        yticklabels={%
+	            Analog by Call,
+	            ISDN by Call,
+	            ISDN Flat,
+	            DSL 8000 analog by Call,
+	            DSL 8000 analog (200 Mb),
+	            DSL 8000 analog flat,
+	            DSL 8000 ISDN by Call,
+	            DSL 8000 ISDN (200 Mb),
+	            DSL 8000 ISDN flat,
+	            DSL 8000 Solo (VoIP)
+	            },
+	        xmin=0,
+	        xmax=45
+	    ]
+	    \addplot[draw=darkblue,fill=blue!50!white,semithick] coordinates {
+	        (18,    1) 
+	        (19,    2)
+	        (37,    3)
+	        (30,    4)
+	        (37,	5)
+	        (35,	6)
+	        (36,	7)
+	        (43,	8)
+	        (40,	9)
+	        (27,	10)	
+	    };
+	    \end{axis}
+	\end{tikzpicture}
+    \caption{Kosten bei 1,5 h Internetnutzung}
+    \label{fig:Kostenvergleich}
+\end{figure}
+
+%\cleardoublepage
+\section[Handlungsschritt 2]{Handlungsschritt 2\footnote{Autor: Martin Wilke}}
+\subsection{Netzübersichtsplan ISDN}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{images/Diagramm_ISDN.png}
+    \caption{Netzübersichtsplan ISDN}
+    \label{fig:Diagramm_ISDN}
+\end{figure}
+\cleardoublepage
+\subsection{Netzübersichtsplan DSL/ISDN}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=13cm]{images/Diagramm_DSL.png}
+    \caption{Netzübersichtsplan DSL/ISDN}
+    \label{fig:Diagramm_DSL}
+\end{figure}
+\subsection{Verdrahtung des S\textsubscript{0}-Busses}
+In \hyperref[fig:Diagramm_DSL]{Abbildung \ref*{fig:Diagramm_DSL}} kann man sehr
+gut die genaue Verdrahtung des S\textsubscript{0}-Busses sehen. Der
+Netzabschluss entspricht in diesem Fall dem NTBA (externer
+S\textsubscript{0}-Bus) oder der TK-Anlage (interner S\textsubscript{0}-Bus).
+Sollte der Kunde expandieren wollen stehen ihm zwei Möglichkeiten offen um
+zeitgleich vier Sprachkanäle nutzen zu können:
+\begin{itemize}
+  \item Beauftragen eines zweiten ISDN-Anschlusses inkl. anschließen eines
+  zweiten NTBA (vier Sprachkanäle)
+  \item Beauftragen eines Primärmultiplexanschlusses (30 Sprachkanäle) 
+\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{images/Diagramm_Verdrahtung.png}
+    \caption{Die genaue Verdrahtung des S0-Busses}
+    \label{fig:Diagramm_DSL}
+\end{figure}
+\section{Handlungsschritt 3}
+\subsection
+    [Aufgaben des NTBA]
+    {Aufgaben des NTBA\footnote{\label{foot:Christoph}Autor:
+    Christoph Ringe}}
+Die Aufgaben des NTBA lassen sich im Wesentlichen in vier Bereiche aufteilen:
+\begin{description}
+    \item[Umsetzung U\textsubscript{K0}/S\textsubscript{0}:]
+An der Telefonanschlussbuchse befindet sich die
+U\textsubscript{K0}-Schnittstelle mit zwei Adern. Um den Anschluss mehrerer
+ISDN-fähiger Endgeräte zu ermöglichen kommt in der ISDN-Technik der sogenannte
+S\textsubscript{0}-Bus zum Einsatz. Der S\textsubscript{0}-Bus benutzt vier
+Adern. Im NTBA befindet sich die Gabelschaltung
+(\hyperref[fig:Gabelschaltung]{Abbildung \ref*{fig:Gabelschaltung}}), die die
+zweiadrige U\textsubscript{K0}-Schnittstelle in den vieradrigen S\textsubscript{0}-Bus umsetzt.
+\begin{figure}
+    \centering
+    \includegraphics[width=6cm]{images/Gabelschaltung.png}
+    \caption{Gabelschaltung U\textsubscript{K0}/S\textsubscript{0}}
+    \label{fig:Gabelschaltung}
+\end{figure}
+    \item[Codeumsetzung MMS43/AMI-Code:]
+Direkt mit der Umsetzung von U\textsubscript{K0}/S\textsubscript{0}
+einhergehend ist die Umcodierung der MMS43-Codierung von der
+U\textsubscript{K0}-Schnittstelle in den AMI-Code auf dem
+S\textsubscript{0}-Bus.
+    \item[Echokompensation:]
+Um Fehler bei der Übertragung zu minimieren kommt die Echokompensation zum
+Einsatz, die Echo- und Halleffekte weitgehend beseitigt.
+    \item[Notstromversorgung:]
+Bei Analogtelefonen war der Betrieb, auch bei einem Stromausfall des örtlichen
+Stromnetzes, gewährleistet. Der NTBA stellt sicher das auch ISDN-Geräten in
+einem solchen Fall mit Energie versorgt werden. Fällt der Strom des örtlichen
+Stromnetzes aus, wechselt der NTBA in den Notbetrieb, was die ISDN-Endgeräte an
+der gewechselten Polarität der vom NTBA zur Verfügung gestellten Gleichspannung
+erkennen können. ISDN-Endgeräte können dann ebenfalls in einen Notbetrieb, wenn
+unterstützt, wechseln. 
+\end{description}    
+\subsection
+    [Mehrfachnutzung von Übertragungsmedien (Multiplexing)]
+    {Mehrfachnutzung von
+    Übertragungsmedien (Multiplexing)\textsuperscript{\ref{foot:Christoph}}}
+Unter Multiplexing versteht man ein Verfahren, welches es ermöglicht, mehrere
+voneinander unabhängige Signale zur ``gleichen Zeit'' über ein Medium zu
+übertragen.\\
+Dabei gibt es unterschiedliche Multiplexverfahren:
+\begin{description}
+    \item[Zeitmultiplexing]
+Beim Zeitmultiplexverfahren werden mehrere Signale zeitversetzt über ein Medium
+übertragen.
+    \item[Frequenzmultiplexing]
+Es werden mehrere Signale auf unterschiedlichen Trägerfrequenzen zeitgleich
+übertragen. Um am Empfänger wieder die ursprünglichen Signale zu erhalten, ist
+eine Trennung und anschließende Demodulation am Empfänger notwendig.
+    \item[Raummultiplexing]
+Es werden mehrere Signale zeitgleich über einen
+Kabelstrang, aber jedes Signal auf seiner ``eigenen'' Leitung übertragen.
+    \item[Codemultiplexing]
+Mehrere Signale werden über ein Medium übertragen und anhand ihrer Codierung
+vom Empänger getrennt (z.B. PCI-Bus im PC).
+\end{description} 
+\subsection
+    [Synchrones und asynchrones Zeitmultiplexing]
+    {Synchrones und asynchrones
+    Zeitmultiplexing\textsuperscript{\ref{foot:Christoph}}}
+\subsubsection{Synchrones Zeitmultiplexing}
+Beim synchronen Zeitmultiplexverfahren steht jedem Sender ein genau definierter
+Zeitabschnitt zur Übertragung seiner Daten zur Verfügung. Vorteil bei diesem
+Verfahren ist, dass jeder Sender genau weiß wie viele Daten er in welcher Zeit
+übertragen kann. Bleibt jedoch ein Zeitabschnitt über einen längeren Zeitraum
+ungenutzt, wird viel ungenutzte Übertragungszeit verschwendet.
+\subsubsection{Asynchrones Zeitmultiplexing}
+Beim asynchronen Zeitmultiplexverfahren wird der Nachteil von ungenutzten
+Übertragungszeiten beim synchronen Zeitmultiplexing vermieden, indem andere
+Sender die freiwerdende Übertragungszeit nutzen können. Dadurch wird eine
+höhere Übertragungsrate einzelner Sender möglich. Um die Datenpakete am
+Empfänger trennen zu können ist es aber bei diesem Verfahren nötig, zusätzliche
+Informationen zur Identifizierung (Header, Channel Identifier) der Datenpakete
+mitzusenden. Die Menge der Nutzdaten wird somit, zumindest theoretisch,
+geringer. In der Praxis wird meist eine höhere Datenübertragung möglich, da
+beim synchronen Zeitmultiplexing zu oft gar keine Daten gesendet werden.
+\subsection
+    [Anwendung von asynchronem Zeitmultiplexing]
+    {Anwendung von asynchronem
+    Zeitmultiplexing\textsuperscript{\ref{foot:Christoph}}}
+Das asynchrone Zeitmultiplexing, auch ATM\footnote{ATM : Asynchronous Time
+Devision} kommt vor allem bei der Nutzung von Rechnernetzen zum Einsatz, z.B.
+Token Ring, FDDI, Token Bus. Das aber wohl bekannteste Beispiel, welches ATM
+benutzt, ist das Internet.
+\subsection
+    [Synchrones Zeitmultiplexing an der
+    S\textsubscript{0}-Schnittstelle]
+    {Synchrones Zeitmultiplexing an der
+    S\textsubscript{0}-Schnittstelle\footnote{\label{foot:Oluf}Autor: Oluf
+    Lorenzen}}
+Um über einen normalen zweiadrigen Telefonanschluss (U\textsubscript{K0}-Seite)
+zwei Telefonleitungen inklusive D-Kanal (S\textsubscript{0}-Seite) anbieten zu
+können, verwendet man synchrones Zeitmultiplexing. Dieser Vorgang beschreibt
+folgende Schritte:
+\begin{itemize}
+    \item{Von der Vermittlungsstelle werden drei Signale (2$\cdot$B-Kanal, 
+    1$\cdot$D-Kanal) gemultiplext und an die U\textsubscript{K0}-Schnittstelle
+    des NTBA übertragen.}
+    \item{Im NTBA werden diese Signale demultiplext und können an der
+    S\textsubscript{0}-Schnittstelle entgegengenommen werden.}
+    \item{An der S\textsubscript{0}-Schnittstelle erhält dann der
+    B\textsubscript{1}- und B\textsubscript{2}-Kanal jeweils ein eigenes,
+    vollduplex nutzbares Aderpaar.}
+\end{itemize}
+\subsection
+    [S\textsubscript{0}-Bus Frameaufbau]
+    {S\textsubscript{0}-Bus
+    Frameaufbau\textsuperscript{\ref{foot:Oluf}}}
+Die Frames im Bus sind folgendermaßen aufgebaut
+(\hyperref[fig:Frameaufbau]{Abbildung \ref*{fig:Frameaufbau}},
+\hyperref[tbl:Frameaufbau]{Tabelle \ref*{tbl:Frameaufbau}}):\\
+\begin{table}[h]
+\centering
+\begin{tiny}
+\begin{tabular}{|l|l|}
+\hline
+\rowcolor{white}
+2 Bit & Anfangs-/Paritätsbit\\
+\rowcolor{Gray}
+8 Bit & vom B\textsubscript{1}-Kanal\\
+\rowcolor{white}
+2 Bit & D-Kanal-Echo-/D-Kanal-Bit\\
+\rowcolor{Gray}
+3 Bit & Synchonisierung und Steuerung\\
+\rowcolor{white}
+8 Bit & vom B\textsubscript{2}-Kanal\\
+\rowcolor{Gray}
+2 Bit & D-Kanal-Echo-/D-Kanal-Bit\\
+\rowcolor{white}
+1 Bit & Synchonisierung/Steuerung\\
+\rowcolor{Gray}
+8 Bit & vom B\textsubscript{1}-Kanal\\
+\rowcolor{white}
+2 Bit & D-Kanal-Echo-/D-Kanal-Bit\\
+\rowcolor{Gray}
+1 Bit & Synchonisierung/Steuerung\\
+\rowcolor{white}
+8 Bit & vom B\textsubscript{2}-Kanal\\
+\rowcolor{Gray}
+2 Bit & D-Kanal-Echo-/D-Kanal-Bit\\
+\rowcolor{white}
+1 Bit & Frame-Abschluss\\
+\hline
+\end{tabular}
+\end{tiny}
+\caption{S\textsubscript{0}-Bus Frameaufbau}
+\label{tbl:Frameaufbau}
+\end{table}
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{images/Frameaufbau.png}
+    \caption{S\textsubscript{0}-Bus Frameaufbau}
+    \label{fig:Frameaufbau}
+\end{figure}
+Ein S\textsubscript{0}-Frame ist also insgesamt 48 Bit lang und wird alle
+250 $\upmu$s versandt:
+$$\frac{1000000\frac{\mu s}{s}}{250\frac{\mu s}{Frame}}=4000\frac{Frame}{s}$$
+Da pro B-Kanal 16 Bit übertragen werden, ergibt sich damit eine Durchsatzmenge
+von 64 kBit/s pro B-Kanal:
+$$16\frac{Bit}{Frame}\cdot 4000\frac{Frame}{s}=64\frac{kBit}{s}$$
+Der D-Kanal erreicht eine Durchsatzmenge von 16 kBit/s:
+$$4\frac{Bit}{Frame}\cdot 4000\frac{Frame}{s}=16\frac{kBit}{s}$$
+Da in jedem Frame die Größe der jew. Bereiche
+(B\textsubscript{1}/B\textsubscript{2}/D) festgelegt ist, benötigt man, egal
+für welchen Kanal, in voller Größe 4000 Frames bzw. 1 Sekunde.
+%Wenn man nun die Durchsatzmenge/Zeit zusammenzieht kommt man auf ein Volumen
+%von 192 kBit/s:
+%$$48\frac{Bit}{Frame}\cdot 4000\frac{Frame}{s}=192\frac{kBit}{s}$$
+%Da ein B-Kanal 64000 Bit fasst, ein Frame 16 Bit pro B-Kanal und 4 Bit pro
+%D-Kanal transportiert, benötigt man 4000 Frames um die Kanäle "`vollständig"'
+%zu übertragen.\\
+%Da in jedem Frame die größe der jew. Bereiche
+%(B\textsubscript{1}/B\textsubscript{2}/D) festgelegt ist, benötigt man, egal
+%für welchen Kanal in voller größe, 4000 Frames.
+\subsection
+    [Digitalisierung analoger Signale (PCM)]
+    {Digitalisierung analoger
+    Signale (PCM)\textsuperscript{\ref{foot:Oluf}}}
+Unter Anwendung der PCM werden analoge Signale in den folgenden
+Schritten digital codiert:
+\begin{itemize}
+    \item Bandbegrenzung/Abtastung
+    \item Quantisierung
+    \item Codierung
+\end{itemize}
+Bei der Bandbegrenzung/Abtastung wird das analoge Signal in einer bestimmten
+Frequenz bis zu einem bestimmten Schwellenwert (Frequenzmaximum/-minimum)
+abgetastet und man erhält ein pulsamplitudenmoduliertes Signal
+(\hyperref[fig:PCM]{Abbildung \ref*{fig:PCM} A und B}).\\ Zu beachten ist
+hierbei, dass die Frequenz der Abtastung doppelt so hoch sein muss, wie die
+höchste vorkommende Frequenz des analogen Signals.\\ Dieses Signal wird nun in
+einem Analog-Digital-Wandler quantisiert (\hyperref[fig:PCM]{Abbildung
+\ref*{fig:PCM} C}). Daraus ergibt sich, dass die Schwingungsweiten
+(Amplitudenwerte) in eine bestimmte Anzahl von Quantisierungsstufen eingeteilt
+werden. Aus jedem Wert wird ein Codewort berechnet
+(\hyperref[fig:PCM]{Abbildung \ref*{fig:PCM} C und D}), was die
+Schwingungsweite beinhaltet. Die Anzahl der möglichen Quantisierungsstufen $q$
+(in \hyperref[fig:PCM]{Abbildung \ref*{fig:PCM}} sind es $q=16$) ergibt sich
+hierbei aus der vorher festgelegten Anzahl der Bits $b$:
+$$q=2b$$
+Bei ISDN werden 8 Bit verwendet, was 256 Quantisierungsstufen entspricht.\\
+Da das menschliche Gehör den Frequenzbereich zwischen max./min. 28 kHz/16 Hz
+wahrnehmen kann und man nach dem Nyquist-Shannon-Theorem 56000
+Abtastungen/Sekunde vornehmen muss, ergibt das z.B. bei einer CD-ROM
+(16Bit/Abtastung):
+$$56000\cdot 16 Bit=986000 Bit$$
+Bei Kompressionsverfahren für Sprachsignale werden üblicher Weise mit einer
+Frequenz von 8 kHz abgetastet, da bis zu diesem Level eine gute
+Sprachverständlichkeit gegeben ist. Da es bei HiFi keinerlei allgemeingültige
+Definition gibt, kann hierzu nichts genaues gesagt werden. Abhängig ist die
+Ausgabefrequenz letztendlich von der vorhandenen Hardware (Lautsprecher usw.),
+des Mediums (analog: LP, Magnetband usw.) bzw. bei digitaler Speicherung vom
+Codec (FLAC, MPEG, Audio Layer 3, usw.). Da wie oben erwähnt, ohne
+Beschränkungen in der Abtastfrequenz eine große Datenmenge generiert wird
+(z.B. CD-ROM, bereits mit Beschränkung!) und man unter Anwendung der besagten
+8 kHz und einer guten Dynamik von 256 Quantisierungsintervallen (8
+Bit/Codewort) alle 128 $\upmu$s 8 Bit verarbeitet werden, ergibt das einen
+Sprachkanal von 64 kbit/s.
+\begin{figure}
+    \centering
+    \includegraphics[width=14cm]{images/Digitalisierung.png}
+    \caption{PCM}
+    \label{fig:PCM}
+\end{figure}
+\subsection
+    [Frequenzmultiplexing]
+    {Frequenzmultiplexing\textsuperscript{\ref{foot:Oluf}}}
+Frequenzmultiplexing ist ein Verfahren, mit dem sich überschneidende
+Frequenzbänder mehrere Kanäle über einen Kanal übertragen lassen. Jedes
+Frequenzband eines Kanals wird auf einem breiteren, in einer festgelegten
+Position zu den anderen Bändern, "`abgelegt"' bzw. verschoben. Es ist eine
+Reduzierung der drei Kanäle auf ein breiteres Frequenzband auf einem Kanal
+erfolgt.
+\subsection
+    [Frequenzmultiplexing am Beispiel analoges/DSL-Signal]
+    {Frequenzmultiplexing am Beispiel
+    analoges/DSL-Signal\footnote{\label{foot:Conrad}Autor: Conrad
+    Kostecki}}
+Das Frequenzmultiplexing dient dazu, über eine Leitung gleichzeitig mehrere
+Signale zu übertragen. Ein bekannter Anwendungsfall ist die Übertragung eines
+POTS-/ISDN-Signals gemeinsam mit dem DSL-Signal auf einer Leitung. Damit ist
+eine gleichzeitige Nutzung von Telefonie und DSL möglich.\\
+Das ganze wird ermöglicht, in dem auf verschiedenen Frequenzen ein bestimmtes
+Signal übertragen wird. POTS (Analog) wird auf den Frequenzen bis 20 KHz
+übertragen. Falls anstatt POTS (Analog) ISDN genutzt wird, so wird auf den
+Frequenzen bis zu 120 KHz genutzt. Aufgrund des Annex-B-Standards in
+Deutschland wird bei Analoganschlüssen trotzdem erst ab 138 KHz das DSL-Signal
+übertragen. Erst ab 138 KHz beginnt das DSL-Signal, welches in zwei Bereiche
+eingeteilt wird. Der erste Bereich ist der Uplink und der zweite Bereich der
+Downlink. Zusammen ergibt es das Frequenzspektrum für DSL.
+\begin{figure}
+    \centering
+    \includegraphics[width=10cm]{images/Frequenzmultiplexing.png}
+    \caption{Frequenzmultiplexing}
+    \label{fig:Frequenzmultiplexing}
+\end{figure}
+\subsection
+    [Aufgabe des Splitters]
+    {Aufgabe des Splitters\textsuperscript{\ref{foot:Conrad}}}
+Der Splitter (BBAE, Breitbandanschlusseinheit) hat nur eine einzige Aufgabe:
+er ist dafür zuständig, dass auf der ankommenden Leitung die Signale
+voneinander getrennt werden. Dafür sind mittels des Frequenzmultiplexing
+mehrere Signale auf einer Leitung gelegt. Dabei wird zwischen
+niedrigfrequenten (POTS, ISDN) und hochfrequenten Signalen (DSL)
+unterschieden. Im Prinzip ist der Splitter nichts weiter, als eine passive
+Frequenzweiche, mit der das Signal sauber getrennt werden kann. Dadurch wird
+eine gleichzeitige Nutzung von Telefonie und Internet ermöglicht.
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{images/Splitter.png}
+    \caption{Aufgaben des Splitters}
+    \label{fig:Splitter}
+\end{figure}
+\subsection
+    [Amplitudenmodulation und Frequenzmodulation]
+    {Amplitudenmodulation und
+    Frequenzmodulation\textsuperscript{\ref{foot:Conrad}}}
+Damit mehrere Informationen auf einer Trägerfrequenz übertragen werden können,
+gibt es zwei Verfahren. Das eine ist die Amplitudenmodulation und das andere
+ist die Frequenzmodulation.
+\subsubsection{Amplitudenmodulation}
+Bei der Amplitudenmodulation wird einem hochfrequenten Trägersignal, die zu
+übermittelnde Information in Form eines niederfrequenten Modulationssignals
+aufmoduliert. Wie der Name sagt, erzeugt die Amplitudenmodulation Änderungen
+an den Amplituden, also den Ausschlägen des Trägersignals. Die Trägerfrequenz
+wird jedoch nicht verändert. Hierdurch wird eine höhere Reichweite
+gegenüber der Frequenzmodulation erreicht. Aufgrund der Abhängigkeit der
+Amplitude, ist die Amplitudenmodulation allerdings auch anfällig gegenüber
+umweltbedingten Störungen, da diese sich in erster Linie auf die Amplitude
+auswirken.
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{images/Amplitudenmodulation.png}
+    \caption{Amplitudenmodulation}
+    \label{fig:Amplitudenmodulation}
+\end{figure}
+\subsubsection{Frequenzmodulation}
+Bei der Frequenzmodulation wird die Modulation durch eine Änderung an der
+Trägerfrequenz erreicht. Als Frequenzhub werden alle Abweichungen vom
+unmodulierten Trägersignal bezeichnet. Wie der Name schon sagt, wird die
+anstatt der Amplitude die Frequenz moduliert. Dadurch treten weit aus weniger
+Störungen auf, als bei der Amplitudenmodulation. Zusätzlich wird ein höherer
+Dynamikumfang erreicht als bei der Amplitudenmodulation. Ein Nachteil dagegen
+ist, dass die Frequenzmodulation eine geringere Reichweite hat als
+Amplitudenmodulation. Das ist darauf zurückzuführen, dass die Trägerfrequenzen
+nur kleine Wellen besitzen, welche durch Hindernisse schnell geschwächt werden
+können (Bäume, Gebirge, Gebäude). Durch umweltbedingte Störeinwirkungen wird
+allgemein die Amplitude beeinflusst. Bei der Frequenzmodulation ist jedoch
+die Amplitude immer konstant, wodurch die Störungen nur einen geringen
+Einfluss haben.
+\begin{figure}
+    \centering
+    \includegraphics[width=8cm]{images/Frequenzmodulation.png}
+    \caption{Frequenzmodulation}
+    \label{fig:Frequenzmodulation}
+\end{figure}
+
+\cleardoublepage
+\begin{appendix}
+    \section{Quellenangabe}
+    \begin{itemize}
+      \item \href{http://www.htp.net}{http://www.htp.net}
+      \item \href{http://de.wikipedia.org}{http://de.wikipedia.org}
+      \item Einfache IT-Systeme, Bildungsverlag EINS
+      \item Net IT, Verlag Handwerk und Technik
+      \item 
+      \href{http://www.elektronik-kompendium.de}{http://www.elektronik-kompendium.de}
+      \item \href{http://www.a-enterprise.ch}{http://www.a-enterprise.ch}
+      \item \href{http://www.triple-tec.de}{http://www.triple-tec.de}
+      \item IT-Handbuch für Fachinformatiker, Verlag Galileo Computing
+      \item Einführung in die Informatik, Verlag Oldenburg
+      \item
+      \href{http://www.antenne-kulmbach.de/Amateurfunk/wissen.html}{http://www.antenne-kulmbach.de/Amateurfunk/wissen.html}
+      \item
+      \href{http://www.dasp.uni-wuppertal.de/ars_auditus/akustik/akustik8.htm}{http://www.dasp.uni-wuppertal.de/ars\_auditus/akustik/akustik8.htm}
+      \item
+      \href{http://www.dsltarife.net/lexikon/3.html}{http://www.dsltarife.net/lexikon/3.html}
+      \item
+      \href{http://www.tocker.de/dsl/dsl.html}{http://www.tocker.de/dsl/dsl.html}
+    \end{itemize}
+    \section{Kolophon}
+Dieses Dokument wurde mit \LaTeX\ erstellt. Als \LaTeX-Distribution wurde
+MiKTeX 2.7 unter Microsoft Windows XP verwendet. Als Entwicklungsumgebung
+wurde Eclipse 3.4.1 GANYMEDE benutzt. Für das allgemeine Dokumentlayout ist die
+im deutschsprachigen Raum übliche KOMA-Script Klasse scrartcl verantwortlich.
+Die generierung des pdf-Formats wurde mit pdfTeX realisiert. Desweiteren
+wurden die \LaTeX-Pakete automark, babel, inputenc, fontenc, graphicx,
+hyperref, color, colortbl, upgreek, textcomp und helvet benutzt.
+\end{appendix}
+\end{document}
